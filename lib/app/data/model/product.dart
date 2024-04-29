@@ -19,16 +19,30 @@ class Product {
       required this.images
       });
 
-factory Product.fromMap(Map<String, dynamic> map) {
-  return Product(
-  title: map['title'],
-  description: map['descripition'],
-  price:map['price'],
-  rating:map['rating'],
-  brand:map['brand'],
-  category:map['category'],
-  thumbnail: map['thumbnail'],
-  images: List<String>.from((map['images' as List])),
-  );
+// factory Product.fromMap(Map<String, dynamic> map) {
+//   return Product(
+//   title: map['title'],
+//   description: map['description'],
+//   price:map['price'] * 1.0,
+//   rating:map['rating'] * 1.0,
+//   brand:map['brand'],
+//   category:map['category'],
+//   thumbnail: map['thumbnail'],
+//   images: List<String>.from((map['images'] as List)),
+//   );
+//   }
+// }
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      title: json['title'],
+      description: json['description'],
+      price:json['price'] * 1.0,
+      rating:json['rating'] * 1.0,
+      brand:json['brand'],
+      category:json['category'],
+      thumbnail: json['thumbnail'],
+      images: List<String>.from((json['images'] as List)),
+    );
   }
 }
